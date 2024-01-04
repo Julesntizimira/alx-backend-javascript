@@ -1,5 +1,10 @@
-import ClassRoom from "./0-classroom"
+import ClassRoom from './0-classroom';
 
-export default function initializeRooms () {
-  return [new ClassRoom(19), new ClassRoom(20), new ClassRoom(34)];
+export default function initializeRooms() {
+  const numArr = [19, 20, 34];
+  const objArr = [];
+  for (const num of numArr) {
+    objArr.push(new ClassRoom(num));
+  }
+  return objArr;
 }
