@@ -1,12 +1,18 @@
-const http = require('node:http');
+// Importing the http module
+const http = require('http');
 
-const hostname = '127.0.0.1';
-const port = 1245;
-
+// Creating the HTTP server
 const app = http.createServer((req, res) => {
-  res.end('Welcome to the homepage!');
+  // Setting the status code and content type
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  // Sending the response body
+  res.end('Hello Holberton School!\n');
 });
 
-app.listen(port, hostname, () => {
-  console.log('...');
+// Listening on port 1245
+app.listen(1245, () => {
+  console.log('Server is running on port 1245');
 });
+
+// Exporting the app variable
+module.exports = app;
