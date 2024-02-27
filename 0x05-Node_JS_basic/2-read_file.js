@@ -6,17 +6,24 @@ function countStudents(path) {
   try {
     // Read file synchronously
     let data = fs.readFileSync(path, 'utf8');
-    data = data.split('\n');
-    const lineCount = data.length - 1;
+    data = data.split('\n').slice(1);
+    const lineCount = data.length;
     console.log(`Number of students: ${lineCount}`);
-    let fields = [];
+    const swe = [];
+    const cs = [];
     for (const line of data) {
-      if (line !== '\n') fields.push(line.split(',')[0]);
+      if (line !== '\n') {
+        const lineSplited = line.split(',');
+        if (lineSplited[3] === 'SWE') swe.push(lineSplited[0]);
+        else if (lineSplited[3] === 'CS') cs.push(lineSplited[0]);
+      }
     }
-    fields = fields.slice(1).join(', ');
-    console.log(`Number of students in FIELD: 6. List: ${fields}`);
+    const fields = [{ name: 'CS', data: cs }, { name: 'SWE', data: swe }];
+    for (const field of fields) {
+      console.log(`Number of students in ${field.name}: ${field.data.length}. List: ${field.data.join(', ')}`);
+    }
   } catch (err) {
-    throw new error('Cannot load the database');
+    throw new Error('Cannot load the database');
   }
 }
 module.exports = countStudents;
