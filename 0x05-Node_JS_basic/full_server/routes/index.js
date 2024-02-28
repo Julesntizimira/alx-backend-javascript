@@ -6,8 +6,6 @@ const router = express.Router();
 
 router.get('/', AppController.getHomepage);
 router.get('/students', StudentsController.getAllStudents);
-
-// Route to get students by major
 router.get('/students/:major', StudentsController.getAllStudentsByMajor);
 
 module.exports = router;
