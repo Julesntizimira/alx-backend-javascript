@@ -1,7 +1,7 @@
 {
   "name": "unittest",
   "version": "1.0.0",
-  "description": "0x06-unittests_in_js",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
