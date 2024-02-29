@@ -1,6 +1,4 @@
-package.json
 babel.config.js
 .eslintrc.js
-utils.js
 package-lock.json
 node_modules
